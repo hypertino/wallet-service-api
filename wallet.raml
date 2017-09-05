@@ -1,0 +1,46 @@
+#%RAML 1.0
+title: Wallet API
+version: v1
+mediaType: application/json
+baseUri: hb://wallet
+
+types:
+  Wallet:
+    type: object
+    properties:
+      wallet_id: string
+      amount:
+        type: string
+        description: decimal (currency) representation of amount
+      last_transaction_id: string
+
+  WalletTransactionStatus:
+    enum: [new,applied,failed]
+
+  WalletTransaction:
+    type: object
+    properties:
+      transaction_id: string
+      wallet_id: string
+      amount: string
+      status: WalletTransactionStatus
+      extra: object
+
+/wallets/{wallet_id}:
+  get:
+    responses:
+      200:
+        body:
+          Wallet
+
+/wallets/{wallet_id}/transactions/{transaction_id}:
+  put:
+    body:
+      type: WalletTransaction
+    responses:
+      201:
+        body:
+          type: Wallet
+      200:
+        body:
+          type: Wallet
