@@ -27,6 +27,8 @@ types:
       extra: object
 
 /wallets/{wallet_id}:
+  uriParameters:
+    wallet_id: string
   get:
     responses:
       200:
@@ -34,6 +36,9 @@ types:
           Wallet
 
 /wallets/{wallet_id}/transactions/{transaction_id}:
+  uriParameters:
+    wallet_id: string
+    transaction_id: string
   put:
     body:
       type: WalletTransaction
