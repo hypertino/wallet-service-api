@@ -10,8 +10,9 @@ types:
     properties:
       wallet_id: string
       amount:
-        type: string
-        description: decimal (currency) representation of amount
+        type: number
+        format: long
+        description: represent's currency in cent's (as integers)
       last_transaction_id: string
 
   WalletTransactionStatus:
@@ -22,7 +23,9 @@ types:
     properties:
       transaction_id: string
       wallet_id: string
-      amount: string
+      amount:
+        type: number
+        format: long
       status: WalletTransactionStatus
       extra: object
 
