@@ -22,6 +22,9 @@ types:
         format: long
         description: if maximum is set, amount can't be set to less than minimum (upper bound)
       last_transaction_id: string
+      updated_at:
+        type: number
+        format: long
 
   WalletTransactionStatus:
     enum: [new,applied,failed]
@@ -32,6 +35,9 @@ types:
       transaction_id: string
       wallet_id: string
       amount:
+        type: number
+        format: long
+      created_at:
         type: number
         format: long
       minimum?:
