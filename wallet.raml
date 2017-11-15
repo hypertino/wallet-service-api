@@ -13,6 +13,14 @@ types:
         type: number
         format: long
         description: represent's currency in cent's (as integers)
+      minimum?:
+        type: number
+        format: long
+        description: if minimum is set, amount can't be set to less than minimum (lower bound, often 0)
+      maximum?:
+        type: number
+        format: long
+        description: if maximum is set, amount can't be set to less than minimum (upper bound)
       last_transaction_id: string
 
   WalletTransactionStatus:
@@ -24,6 +32,12 @@ types:
       transaction_id: string
       wallet_id: string
       amount:
+        type: number
+        format: long
+      minimum?:
+        type: number
+        format: long
+      maximum?:
         type: number
         format: long
       status: WalletTransactionStatus
